@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+@import "./theme.css";
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--background);
+  color: var(--text);
+  font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+}
+
+@keyframes float-up {
+  from {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.4;
+  }
+  to {
+    transform: translateY(-110vh);
+    opacity: 0;
+  }
+}
+
+@keyframes swim-idle {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(-2deg);
+  }
+}
+
+@keyframes drift-1 {
+  0%,
+  100% {
+    background-position: 30% 20%;
+  }
+  50% {
+    background-position: 38% 28%;
+  }
+}
+
+@keyframes drift-2 {
+  0%,
+  100% {
+    background-position: 70% 80%;
+  }
+  50% {
+    background-position: 62% 72%;
+  }
+}
+
+@keyframes swim-across {
+  from {
+    transform: translateX(-40px) scaleX(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.9;
+  }
+  90% {
+    opacity: 0.9;
+  }
+  to {
+    transform: translateX(calc(100vw + 40px)) scaleX(1);
+    opacity: 0;
+  }
+}

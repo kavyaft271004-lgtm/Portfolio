@@ -1,0 +1,15 @@
+:root {
+  --background: #04070f;
+  --surface: #091624;
+  --gold: #d4af37;
+  --gold-light: #ffd966;
+  --text: #ffffff;
+  --muted: #aab5c5;
+  --accent: #63d2ff;
+
+  --radius: 18px;
+  --transition: 0.35s ease;
+
+  --font-heading: 'Cinzel', serif;
+  --font-body: 'Inter', sans-serif;
+}
