@@ -8,7 +8,7 @@ export const profile = {
   phone: '+91 9176560990',
   location: 'Chennai, Tamil Nadu',
   linkedin: 'https://www.linkedin.com/in/kavya-sivakumar-488717242',
-  resume: '/resume/Kavya_Sivakumar_Resume.pdf',
+  resume: resume: `${import.meta.env.BASE_URL}resume/Kavya_Sivakumar_Resume.pdf`,
   languages: ['English', 'Tamil', 'Hindi'],
   interests: [
     {
