@@ -19,7 +19,7 @@ function About() {
             style={{ background: 'rgba(212,175,55,0.08)' }}
           >
             <img
-              src=src={`${import.meta.env.BASE_URL}images/kavya-portrait.png`}
+              src={`${import.meta.env.BASE_URL}images/kavya-portrait.png`}
               alt={profile.name}
               className="w-full h-full object-cover object-top"
             />
