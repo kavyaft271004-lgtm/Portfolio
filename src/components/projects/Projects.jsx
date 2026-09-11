@@ -1,8 +1,9 @@
 import { motion } from 'motion/react'
-import { projects, empiricalProjects, karmaYogaProjects } from '../../data/projects'
+import { projects, empiricalProjects, karmaYogaProjects, competitionsProjects } from '../../data/projects'
 import Container from '../ui/Container'
 import SectionHeading from '../ui/SectionHeading'
 import GlassCard from '../ui/GlassCard'
+import Button from '../ui/Button'
 
 function ProjectCard({ project, delay }) {
   return (
@@ -37,6 +38,65 @@ function ProjectCard({ project, delay }) {
   )
 }
 
+function ProjectRow({ project, delay }) {
+  const images = project.sideImages ?? []
+
+  const linkButton = project.link && (
+    <Button
+      as="a"
+      href={project.link}
+      target="_blank"
+      rel="noreferrer"
+      variant="primary"
+      className="px-6 py-3 w-full sm:w-auto"
+    >
+      View Prototype →
+    </Button>
+  )
+
+  if (images.length === 0) {
+    return (
+      <div className="space-y-4">
+        <ProjectCard project={project} delay={delay} />
+        {linkButton}
+      </div>
+    )
+  }
+
+  const isCover = project.sideFit === 'cover'
+  const fitClass = project.sideAspect ? 'object-cover' : isCover ? 'object-cover' : 'object-contain bg-white'
+  const heightClass = project.sideAspect ? '' : isCover ? 'md:h-[320px]' : 'md:h-[420px]'
+
+  return (
+    <div className="grid md:grid-cols-2 gap-6 items-start">
+      <ProjectCard project={project} delay={delay} />
+      <div>
+        <motion.div
+          initial={{ opacity: 0, filter: 'blur(8px)', y: 16 }}
+          whileInView={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.6, ease: 'easeOut', delay: delay + 0.1 }}
+          className={`rounded-[var(--radius)] overflow-hidden border border-[var(--gold)]/20 w-full ${heightClass} ${
+            images.length > 1 ? 'grid grid-cols-2 gap-1.5' : ''
+          }`}
+          style={project.sideAspect ? { aspectRatio: project.sideAspect } : undefined}
+        >
+          {images.map((src) => (
+            <img
+              key={src}
+              src={`${import.meta.env.BASE_URL}${src}`}
+              alt={`${project.title} — photo`}
+              className={`w-full h-full ${fitClass}`}
+              loading="lazy"
+            />
+          ))}
+        </motion.div>
+        {linkButton && <div className="mt-4 flex justify-center md:justify-start">{linkButton}</div>}
+      </div>
+    </div>
+  )
+}
+
 function Projects() {
   return (
     <section id="projects" className="py-24 bg-[var(--background)]">
@@ -58,29 +118,20 @@ function Projects() {
           </div>
         </div>
 
-        <div className="mt-20">
+        <div id="experiential-learning" className="mt-20 scroll-mt-24">
           <SectionHeading eyebrow="Leadership Experiential Action Program" title="Karma Yoga Project" />
           <div className="mt-12 space-y-6">
             {karmaYogaProjects.map((project, i) => (
-              <div key={project.title} className="grid md:grid-cols-2 gap-6 items-start">
-                <ProjectCard project={project} delay={i * 0.06} />
-                {project.sidePage && (
-                  <motion.div
-                    initial={{ opacity: 0, filter: 'blur(8px)', y: 16 }}
-                    whileInView={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
-                    viewport={{ once: true, margin: '-60px' }}
-                    transition={{ duration: 0.6, ease: 'easeOut', delay: i * 0.06 + 0.1 }}
-                    className="rounded-[var(--radius)] overflow-hidden border border-[var(--gold)]/20 md:h-[420px]"
-                  >
-                    <img
-                      src={`${import.meta.env.BASE_URL}${project.sidePage}`}
-                      alt={`${project.title} — newsletter feature`}
-                      className="w-full h-full object-contain bg-white"
-                      loading="lazy"
-                    />
-                  </motion.div>
-                )}
-              </div>
+              <ProjectRow key={project.title} project={project} delay={i * 0.06} />
+            ))}
+          </div>
+        </div>
+
+        <div id="competitions" className="mt-20 scroll-mt-24">
+          <SectionHeading eyebrow="Beyond the Classroom" title="Competitions at GLIM" />
+          <div className="mt-12 space-y-16">
+            {competitionsProjects.map((project, i) => (
+              <ProjectRow key={project.title} project={project} delay={i * 0.06} />
             ))}
           </div>
         </div>
