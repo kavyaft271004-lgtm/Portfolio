@@ -4,6 +4,7 @@ import { education, certifications, achievements } from '../../data/education'
 import Container from '../ui/Container'
 import SectionHeading from '../ui/SectionHeading'
 import GlassCard from '../ui/GlassCard'
+import Bullet from '../ui/Bullet'
 
 function Experience() {
   return (
@@ -28,7 +29,7 @@ function Experience() {
               <ul className="mt-4 space-y-2">
                 {role.points.map((point) => (
                   <li key={point} className="text-sm text-[var(--muted)] flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[var(--gold)] shrink-0 mt-[7px]" />
+                    <Bullet className="mt-[7px]" />
                     {point}
                   </li>
                 ))}
@@ -56,7 +57,7 @@ function Experience() {
             <ul className="space-y-2">
               {certifications.map((cert) => (
                 <li key={cert} className="text-sm text-[var(--muted)] flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[var(--gold)] shrink-0 mt-[7px]" />
+                  <Bullet className="mt-[7px]" />
                   {cert}
                 </li>
               ))}
@@ -68,7 +69,7 @@ function Experience() {
             <ul className="space-y-2">
               {achievements.map((item) => (
                 <li key={item} className="text-sm text-[var(--muted)] flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[var(--gold)] shrink-0 mt-[7px]" />
+                  <Bullet className="mt-[7px]" />
                   {item}
                 </li>
               ))}

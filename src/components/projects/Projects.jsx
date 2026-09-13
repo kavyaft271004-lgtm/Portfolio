@@ -4,6 +4,7 @@ import Container from '../ui/Container'
 import SectionHeading from '../ui/SectionHeading'
 import GlassCard from '../ui/GlassCard'
 import Button from '../ui/Button'
+import Bullet from '../ui/Bullet'
 
 function ProjectCard({ project, delay }) {
   return (
@@ -18,7 +19,7 @@ function ProjectCard({ project, delay }) {
       <ul className="mt-4 space-y-2 flex-1">
         {project.highlights.map((h) => (
           <li key={h} className="text-sm text-[var(--muted)] flex items-start gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-[var(--gold)] shrink-0 mt-[7px]" />
+            <Bullet className="mt-[7px]" />
             {h}
           </li>
         ))}
