@@ -12,6 +12,20 @@ export const education = [
     period: '2016 — 2019',
     gpa: '7.4 CGPA',
   },
+  {
+    degree: '12th Standard (HSC)',
+    institution: 'Bharathiyar Matriculation Higher Secondary School',
+    location: 'Chennai',
+    period: '2016',
+    gpa: '92%',
+  },
+  {
+    degree: '10th Standard (SSLC)',
+    institution: 'Bharathiyar Matriculation Higher Secondary School',
+    location: 'Chennai',
+    period: '2014',
+    gpa: '96%',
+  },
 ]
 
 export const certifications = [
