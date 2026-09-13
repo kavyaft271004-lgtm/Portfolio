@@ -2,6 +2,7 @@ import { skills } from '../../data/skills'
 import Container from '../ui/Container'
 import SectionHeading from '../ui/SectionHeading'
 import GlassCard from '../ui/GlassCard'
+import Bullet from '../ui/Bullet'
 
 const groups = [
   { key: 'professional', label: 'Professional Skills' },
@@ -22,7 +23,7 @@ function Skills() {
               <ul className="space-y-2">
                 {skills[group.key].map((item) => (
                   <li key={item} className="text-sm text-[var(--muted)] flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[var(--gold)] shrink-0" />
+                    <Bullet />
                     {item}
                   </li>
                 ))}
