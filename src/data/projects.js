@@ -87,6 +87,12 @@ export const karmaYogaProjects = [
   },
 ]
 
+export const karmaYogaGallery = [
+  { src: 'images/karma-yoga/ky-cohort.jpg', alt: 'Karma Yoga Committee — PGPM 2026-27 cohort' },
+  { src: 'images/karma-yoga/ky-street.jpg', alt: 'Field visit — community engagement in Veerapuram' },
+  { src: 'images/karma-yoga/ky-doorstep.jpg', alt: 'Field visit — doorstep conversation' },
+]
+
 export const competitionsProjects = [
   {
     title: 'Cross Fire — Consulting Case Competition (Winner)',

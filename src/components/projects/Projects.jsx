@@ -1,5 +1,5 @@
 import { motion } from 'motion/react'
-import { projects, empiricalProjects, karmaYogaProjects, competitionsProjects } from '../../data/projects'
+import { projects, empiricalProjects, karmaYogaProjects, karmaYogaGallery, competitionsProjects } from '../../data/projects'
 import Container from '../ui/Container'
 import SectionHeading from '../ui/SectionHeading'
 import GlassCard from '../ui/GlassCard'
@@ -123,6 +123,26 @@ function Projects() {
           <div className="mt-12 space-y-6">
             {karmaYogaProjects.map((project, i) => (
               <ProjectRow key={project.title} project={project} delay={i * 0.06} />
+            ))}
+          </div>
+
+          <div className="mt-10 grid sm:grid-cols-3 gap-4">
+            {karmaYogaGallery.map((photo, i) => (
+              <motion.div
+                key={photo.src}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{ duration: 0.5, ease: 'easeOut', delay: i * 0.08 }}
+                className="aspect-[4/3] rounded-[var(--radius)] overflow-hidden border border-[var(--gold)]/20"
+              >
+                <img
+                  src={`${import.meta.env.BASE_URL}${photo.src}`}
+                  alt={photo.alt}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </motion.div>
             ))}
           </div>
         </div>
