@@ -106,8 +106,6 @@ export const competitionsProjects = [
       'Zero prep: cases landed live on the night of the competition.',
     ],
     tools: ['Case Cracking', 'Verbal Strategy', 'Live Problem-Solving'],
-    sideImages: ['images/competitions/crossfire.jpg'],
-    sideAspect: '1201 / 720',
   },
   {
     title: 'Shark Tank — Soft Touch (Product Concept)',
